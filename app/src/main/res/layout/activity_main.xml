@@ -6,23 +6,27 @@
     android:layout_height="match_parent"
     tools:context=".ui.MainActivity">
 
-    <TextView
-        android:id="@+id/title"
+    <SearchView
+        android:id="@+id/search_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:text="@string/wallet"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:background="@color/colorAccent"
+        android:closeIcon="@drawable/ic_close"
+        android:elevation="8dp"
+        android:iconifiedByDefault="false"
+        android:queryHint="Search"
+        android:searchIcon="@drawable/ic_search"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_transaction"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:id="@+id/recycler_transaction"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title" />
+        app:layout_constraintTop_toBottomOf="@+id/search_view" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

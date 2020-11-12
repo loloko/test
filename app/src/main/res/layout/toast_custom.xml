@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
+    android:backgroundTint="@color/text_white"
     android:gravity="center"
     android:orientation="horizontal">
 
@@ -13,10 +14,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:backgroundTint="@android:color/transparent"
         android:layout_margin="15dp"
         android:gravity="center"
         android:textAlignment="viewStart"
-        android:textColor="@color/white"
+        android:textColor="@color/blue"
         android:textStyle="bold"
         tools:ignore="RtlCompat" />
 

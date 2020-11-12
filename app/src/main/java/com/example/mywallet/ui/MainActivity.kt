@@ -1,6 +1,7 @@
 package com.example.mywallet.ui
 
 import android.os.Bundle
+import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
@@ -15,7 +16,8 @@ import com.example.mywallet.viewmodel.MainViewModel
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var adapter: TransactionAdapter
+    private val adapter = TransactionAdapter()
+
     private lateinit var viewModel: MainViewModel
     private lateinit var binding: ActivityMainBinding
 
@@ -37,7 +39,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun initAdapter() {
         //recyclerView config
-        adapter = TransactionAdapter()
+
         binding.recyclerTransaction.layoutManager = LinearLayoutManager(this)
         binding.recyclerTransaction.addItemDecoration(
             MarginItemDecoration(
@@ -47,6 +49,19 @@ class MainActivity : AppCompatActivity() {
             )
         )
         binding.recyclerTransaction.adapter = adapter
+
+
+        // Listener for searching  (Searching View)
+        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                adapter.filter.filter(newText)
+                return false
+            }
+        })
     }
 
     private fun subscribeObservers() {

@@ -1,10 +1,8 @@
-package com.example.transactionlist
+package com.example.mywallet.util
 
 const val MOCK_TRANSACTION_LIST = """
-    {
-  "data": {
-    "transactionList": {
-      "items": [
+{
+  "transactionList":[
         {
           "transactionId": "1180241b-2967-4f46-be4d-efa82cd2ac6c",
           "transactionTime": 1604314213762,
@@ -292,7 +290,5 @@ const val MOCK_TRANSACTION_LIST = """
           "paymentReference": null
         }
       ]
-    }
-  }
-}
+   }
 """
