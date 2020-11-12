@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.mywallet.R
@@ -68,11 +69,14 @@ class TransactionAdapter : RecyclerView.Adapter<TransactionAdapter.MyViewHolder>
         fun bind(transaction: TransactionModel) {
             try {
                 // Load image url
-                Glide.with(context).load(transaction.category?.avatarUri?.avatarUriPng)
-                    .placeholder(R.drawable.ic_error)
-                    .error(R.drawable.ic_error)
-                    .centerCrop()
-                    .into(binding.image)
+                if (transaction.category != null)
+                    Glide.with(context).load(transaction.category.avatarUri.avatarUriPng)
+                        .placeholder(R.drawable.ic_error)
+                        .error(R.drawable.ic_error)
+                        .into(binding.image)
+                else
+                    Glide.with(context).load(R.drawable.ic_error).into(binding.image)
+
 
                 binding.tvDebitedFrom.text = transaction.debitedFrom.name
                 binding.tvCreditedTo.text = transaction.creditedTo.name
